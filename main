@@ -1,0 +1,40 @@
+
+# To start the calculations: run this script, after filling in the input
+# filename and the process parameters below.
+# Date: 2018-03-30
+# Version: 1.01
+# Author: Jaap de Gruijter
+
+using DataFrames
+using CSV
+
+filename = "Nowley.txt"     ########### INSERT here name of data file:
+
+println("=======================================================")
+println("File name :  ",filename)
+
+################################## INSERT here process parameters:
+H_min = 3       # minimum number of strata.
+H_max = 7      # maximum number of strata.
+nh_minim = 3    # minimum sample size allowed in the strata.
+CP = 10         # carbon offset price (A$ per Mg).
+f = 120         # cost of obtaining data per grid point (A$).
+Area = 2336     # surface area of the farm (ha).
+Z_gamma = 1.645 # 95% quantile of the standard normal distribution.
+R2 = 0.36       # squared correlation coefficient of predictions.
+range = 582     # auto-correlation range of the prediction error,
+                # in the same length unit as x and y.
+maxcycle = 150  # Maximal number of re-allocation cycles.
+in = 3           # Sampling interval for coarse-gridding
+                # (in = 1 implies no coarse-gridding).
+seed = 1234     # seed for the rand() and randperm() functions.
+
+rng = srand(seed)
+readdata()
+if in == 1
+  println("Calling function ospats")
+  ospats()
+elseif in > 1
+  println("Calling function ospall")
+  ospall()
+end     # if in == 1
