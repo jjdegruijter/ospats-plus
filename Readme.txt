@@ -14,4 +14,4 @@ The functions ospats() and ospall() both lead to a stratification by the Ospats 
 
 The requested function is called by setting the parameter "in" (from sampling INterval) in the main script. If in=1 then ospats() is called, if “in” is set to a value larger than 1, then ospall() is called. For instance, if in=3, then every third grid point gets included in the sample.
 
-For further explanation see the user manual at https://github.com//jjdegruijter/ospats+/Manual.
+For further explanation see the user manual at https://github.com/jjdegruijter/ospats-plus/blob/master/Ospats-manual.pdf.
